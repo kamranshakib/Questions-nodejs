@@ -1,6 +1,6 @@
-const express = require('express')
+const express = require('express');
 
-
+const fs = require('fs')
 const bodyParser = require('body-parser')
 const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
@@ -14,9 +14,18 @@ app.set('view engine','ejs');
 const adminGmail = "kamranshakib371@gmail.com";
 const adminPassword = "kamran";
 
-// write variable of student login
 
+// json file
 
+const dbf = fs.readFileSync('question.json');
+const text = dbf.toString();
+const jsFile = JSON.parse(text);
+
+// // console.log(jsFile[1].a);
+// jsFile.forEach(element => {
+//     console.log('\n'+'\n'+'\n'+ "   " +element.Question + '\n'+ '\n'+"   "+ element.a + '\t'+ element.b + '\t' + element.c + '\t'+ element.d + '\n'+"*----------------*---------------*" )
+     
+// });
 
 
 

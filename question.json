@@ -1,0 +1,31 @@
+[
+    {
+        "Question":"What is your favorate color ?",
+            "a":"red",
+            "b":"black",
+            "c":"yellow",
+            "d":"blue"
+
+    },
+
+
+    
+    {
+        "Question":"What is your favorate Food ?",
+            "a":"rice",
+            "b":"pizza",
+            "c":"bargar",
+            "d":"spaghetti"
+
+    },
+
+       
+    {
+        "Question":"What province of AFG do you live ?",
+            "a":"Herat",
+            "b":"Kabul",
+            "c":"Farah",
+            "d":"Balkh"
+
+    }
+]
