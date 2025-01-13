@@ -12,9 +12,10 @@ app.set('view engine','ejs');
 
 // write variable of admin login 
 const adminGmail = "kamranshakib371@gmail.com";
-const adminPassword = "kamranshakib";
+const adminPassword = "kamran";
 
 // write variable of student login
+
 
 
 
@@ -24,13 +25,17 @@ app.get('/',(req,res)=>{
     res.render("login",{headerText : "Registration "})
 })
 
-// get to user page
+// get to student page
 app.get('/userStudent',(req,res)=>{
     res.render("userStudent")
 })
+
+
+
 // page admimn login
 app.get('/userAdmin',(req,res)=>{
-    res.render('userAdmin')
+ res.render('userAdmin')
+
 })
 
 // post for student
@@ -45,10 +50,12 @@ app.post('/getToPublic',(req,res)=>{
 // post for admin
 app.post('/getToAdminPanel',(req,res)=>{
     const email_admin = req.body.EmailAdmin;
-    const pas_admin = req.body.PasswordAdmin;
-    console.log('okey welcom Mr'+"  "+ email_admin +" "+'\n'+'with password'+ pas_admin)
+    const pas_admin = req.body.passwordAdmin;
+    if(pas_admin == adminPassword){
+          res.render('AdminSide',{headerText : "Admin Panel"})
+    }
 
-    res.render('AdminSide',{headerText : "Admin Panel"})
+   else(res.redirect('/userAdmin'))
 })
 
 
