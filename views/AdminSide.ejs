@@ -3,39 +3,7 @@
         <h2>Manage Questions</h2>
 
         <!-- List of Questions -->
-        <table class="questions-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Question</th>
-                    <th>Options</th>
-                    <th>Correct Answer</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>What is the capital of France?</td>
-                    <td>Paris, Berlin, Madrid, Rome</td>
-                    <td>Paris</td>
-                    <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>What is 5 + 7?</td>
-                    <td>10, 11, 12, 13</td>
-                    <td>12</td>
-                    <td>
-                        <button class="btn-edit">Edit</button>
-                        <button class="btn-delete">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        
 
 
         <!-- Add New Question Form -->
@@ -55,6 +23,43 @@
             </select>
             <button type="submit" class="btn-add">Add Question</button>
         </form>
+         <br><br>
+        <table class="questions-table">
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Question</th>
+                    <th>Options</th>
+                    <th>Correct Answer</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i<jsFile.length; i++){ %>
+                <tr>
+                    <td><%= i %></td>
+                    <td><%= jsFile[i].Question %></td>
+                    <td><%= jsFile[i].Option1 %>, <%= jsFile[i].Option2 %>,<%= jsFile[i].Option3 %>,<%= jsFile[i].Option4 %></td>
+                    <td>Paris</td>
+                    <td>
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-delete">Delete</button>
+                    </td>
+                </tr>
+                <% } %>
+                <!-- <tr>
+                    <td>2</td>
+                    <td>What is 5 + 7?</td>
+                    <td>10, 11, 12, 13</td>
+                    <td>12</td>
+                    <td>
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-delete">Delete</button>
+                    </td>
+                </tr> -->
+            </tbody>
+        </table>
     </main>
 </body>
 </html>

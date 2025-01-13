@@ -39,7 +39,6 @@ app.post('/getToPublic', (req, res) => {
     const l_s_name = req.body.LastNameStudent;
     const id_s_ = req.body.ID_Student;
 
-
     res.render('PublicSide', { headerText: "Questions", jsFile })
 })
 
@@ -49,14 +48,14 @@ app.post('/getToAdminPanel', (req, res) => {
     const pas_admin = req.body.passwordAdmin;
 
     if (pas_admin == adminPassword) {
-        res.render('AdminSide', { headerText: "Admin Panel" })
+        res.render('AdminSide', { headerText: "Admin Panel",jsFile })
     }
 
     else (res.redirect('/userAdmin'))
 
 })
 app.get('/getToAdminPanel', (req, res) => {
-    res.render('AdminSide', { headerText: "Admin Panel" })
+    res.render('AdminSide', { headerText: "Admin Panel",jsFile })
 })
 
 // add question
