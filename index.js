@@ -47,24 +47,56 @@ app.get('/userAdmin',(req,res)=>{
 
 })
 
+// array of student form
+
 // post for student
 app.post('/getToPublic',(req,res)=>{
     const s_name = req.body.nameStudent;
     const l_s_name = req.body.LastNameStudent;
     const id_s_ = req.body.ID_Student;
-    console.log("welcome to my site Mr "+s_name +" "+ l_s_name) 
+   
+    
     res.render('PublicSide',{headerText : "Questions"})
 })
+
+// array form for admin
+const arrayFormAdmin = [];
+
 
 // post for admin
 app.post('/getToAdminPanel',(req,res)=>{
     const email_admin = req.body.EmailAdmin;
     const pas_admin = req.body.passwordAdmin;
+    
     if(pas_admin == adminPassword){
           res.render('AdminSide',{headerText : "Admin Panel"})
     }
-
+    
    else(res.redirect('/userAdmin'))
+
+
+//    arrayFormAdmin.push[{email_admin, pas_admin}];
+})
+
+
+
+// array for question
+const QuestionArray = [];
+// add question
+app.post('/addQuestion',(req,res)=>{
+    var Question = req.body.question;
+    var Option1 = req.body.option1;
+    var Option2 = req.body.option2;
+    var Option3 = req.body.option3;
+    var Option4 = req.body.option4;
+
+    QuestionArray.push({Question,Option1,Option2,Option3,Option4});
+    
+    const dateQuestion = JSON.stringify(QuestionArray);
+    fs.writeFileSync("question.json",dateQuestion);
+
+    res.redirect('/')
+    console.log(QuestionArray)
 })
 
 
