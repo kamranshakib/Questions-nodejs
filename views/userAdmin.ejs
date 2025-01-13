@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Import Form</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fdb8f400;
+    }
+  
+    .form-container {
+      width: 350px;
+      /* margin: auto; */
+      padding: 30px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow:  inset 5px 0 6px rgba(29, 25, 25, 0.134);
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 13px;
+    }
+    .form-group input,
+    .form-group select {
+      width: 97%;
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .form-group input[type="file"] {
+      padding: 5px;
+    }
+    .form-group button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #1858f8cf;
+      transition: all 0.4s ease;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .form-group button:hover {
+      background-color: #002a95;
+    }
+    h2{
+      margin-bottom: 10px;
+    }
+    #textareaClient
+    {
+      width: 100%;
+      height: 60px;
+      font-size: 20px;
+      outline: red;
+      padding: 5px;
+    }
+    #submit{
+        background-color: #4caf50;
+    }
+    input{
+        outline: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2 style="color: black">Login</h2>
+    <form action="/getToAdminPanel" method="POST" >
+
+      <div class="form-group">
+        <label for="header">Email </label>
+        <input type="text" placeholder="enter your Email" id="headerClient" name="EmailAdmin" required>
+      </div>
+
+      <div class="form-group">
+        <label for="text">Password</label>
+      <input type="password" name="PasswordAdmin" id="" placeholder="enter your last Password">
+      </div>
+      
+      <div class="form-group">
+        <button id="submit" type="submit">Submit</button>
+      </div>
+    </form>
+
+  </div>
+</body>
+</html>
