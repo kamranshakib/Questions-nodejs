@@ -28,6 +28,7 @@ app.get('/userAdmin', (req, res) => {
 
 })
 
+
 const dbf = fs.readFileSync('question.json');
 const text = dbf.toString();
 const jsFile = JSON.parse(text);
@@ -39,7 +40,7 @@ app.post('/getToPublic', (req, res) => {
     const l_s_name = req.body.LastNameStudent;
     const id_s_ = req.body.ID_Student;
 
-    res.render('PublicSide', { headerText: "Questions", jsFile })
+    res.render('PublicSide', { headerText: "Questions", QuestionArray })
 })
 
 // post for admin
@@ -48,14 +49,15 @@ app.post('/getToAdminPanel', (req, res) => {
     const pas_admin = req.body.passwordAdmin;
 
     if (pas_admin == adminPassword) {
-        res.render('AdminSide', { headerText: "Admin Panel",jsFile })
+        res.render('AdminSide', { headerText: "Admin Panel" })
     }
 
     else (res.redirect('/userAdmin'))
 
 })
+
 app.get('/getToAdminPanel', (req, res) => {
-    res.render('AdminSide', { headerText: "Admin Panel",jsFile })
+    res.render('AdminSide', { headerText: "Admin Panel",QuestionArray })
 })
 
 // add question
@@ -69,8 +71,12 @@ app.post('/addQuestion', (req, res) => {
 
     const dateQuestion = JSON.stringify(QuestionArray);
     fs.writeFileSync("question.json", dateQuestion);
+
     res.redirect('/getToAdminPanel')
 })
+
+
+
 
 
 app.listen(3000, () => {
