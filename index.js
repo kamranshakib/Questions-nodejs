@@ -79,6 +79,21 @@ app.post('/addQuestion', (req, res) => {
 })
 
 
+// delete question
+app.post('/deleteQuestiom/:idCounter',(req,res)=>{
+    const idToDelete = req.params.idCounter;
+    const index = QuestionArray.findIndex(item =>String(item.idCounter) ===String(idToDelete));
+    if(index !== -1){
+        QuestionArray.splice(index,1)
+    }
+    console.log(idToDelete);
+   
+        res.redirect('/getToAdminPanel')
+  
+    
+})
+
+
 
 
 

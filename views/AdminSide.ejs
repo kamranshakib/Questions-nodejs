@@ -44,7 +44,7 @@
                     <td>Paris</td>
                     <td>
                         <button class="btn-edit">Edit</button>
-                        <form action="/deleteQuestiom"> <button class="btn-delete">Delete</button>  </form>
+                        <form action="/deleteQuestiom/<%=QuestionArray[i].idCounter%> " method="post"> <button class="btn-delete"  name="id" >Delete</button>  </form>
                     </td>
                 </tr>
                 <% } %>

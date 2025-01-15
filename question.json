@@ -1,18 +1,1 @@
-[
-    {
-        "idCounter": 1,
-        "Question": "احمد شاه بابا در کدام سال بدنیا آمد؟jkjkjkjkjkjksadfasf",
-        "Option1": "2013",
-        "Option2": "2034",
-        "Option3": "2459",
-        "Option4": "3211dsaf"
-    },
-    {
-        "idCounter": 2,
-        "Question": "احمد شاه بابا در کدام سال بدنیا آمد؟jkjkjkjkjkjksadfasf",
-        "Option1": "2013",
-        "Option2": "2034",
-        "Option3": "2459",
-        "Option4": "3211dsaf"
-    }
-]
+[{"idCounter":3,"Question":"what is your name ?","Option1":"asfd","Option2":"adsf","Option3":"asdf","Option4":"sadf"},{"idCounter":4,"Question":"what is your name ?","Option1":"asfd","Option2":"adsf","Option3":"asdf","Option4":"sadf"}]
