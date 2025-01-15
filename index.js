@@ -35,6 +35,20 @@ const jsFile = JSON.parse(text);
 
 const QuestionArray = [];
 // post for student
+
+
+// post for admin
+app.post('/getToAdminPanel', (req, res) => {
+    const email_admin = req.body.EmailAdmin;
+    const pas_admin = req.body.passwordAdmin;
+
+    if (pas_admin == adminPassword) {
+        res.render('AdminSide', { headerText: "Admin Panel",QuestionArray })
+    }
+
+    else (res.redirect('/userAdmin'))
+
+})
 app.post('/getToPublic', (req, res) => {
     const s_name = req.body.nameStudent;
     const l_s_name = req.body.LastNameStudent;
@@ -43,23 +57,11 @@ app.post('/getToPublic', (req, res) => {
     res.render('PublicSide', { headerText: "Questions", QuestionArray })
 })
 
-// post for admin
-app.post('/getToAdminPanel', (req, res) => {
-    const email_admin = req.body.EmailAdmin;
-    const pas_admin = req.body.passwordAdmin;
-
-    if (pas_admin == adminPassword) {
-        res.render('AdminSide', { headerText: "Admin Panel" })
-    }
-
-    else (res.redirect('/userAdmin'))
-
-})
-
 app.get('/getToAdminPanel', (req, res) => {
     res.render('AdminSide', { headerText: "Admin Panel",QuestionArray })
 })
 
+var idCounter = 0;
 // add question
 app.post('/addQuestion', (req, res) => {
     var Question = req.body.question;
@@ -67,7 +69,8 @@ app.post('/addQuestion', (req, res) => {
     var Option2 = req.body.option2;
     var Option3 = req.body.option3;
     var Option4 = req.body.option4;
-    QuestionArray.push({ Question, Option1, Option2, Option3, Option4 });
+    idCounter = idCounter+1;
+    QuestionArray.push({idCounter, Question, Option1, Option2, Option3, Option4 });
 
     const dateQuestion = JSON.stringify(QuestionArray);
     fs.writeFileSync("question.json", dateQuestion);
