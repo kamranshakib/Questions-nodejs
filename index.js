@@ -69,14 +69,17 @@ app.post('/addQuestion', (req, res) => {
     var Option2 = req.body.option2;
     var Option3 = req.body.option3;
     var Option4 = req.body.option4;
+    var correctAnswer = req.body.correctAnswer;
+    console.log(correctAnswer)
     idCounter = idCounter+1;
-    QuestionArray.push({idCounter, Question, Option1, Option2, Option3, Option4 });
+    QuestionArray.push({idCounter,correctAnswer, Question, Option1, Option2, Option3, Option4 });
 
     const dateQuestion = JSON.stringify(QuestionArray);
     fs.writeFileSync("question.json", dateQuestion);
 
     res.redirect('/getToAdminPanel')
 })
+
 
 
 // delete question
@@ -86,7 +89,7 @@ app.post('/deleteQuestiom/:idCounter',(req,res)=>{
     if(index !== -1){
         QuestionArray.splice(index,1)
     }
-    console.log(idToDelete);
+    console.log(idToDelete); 
    
         res.redirect('/getToAdminPanel')
   
@@ -96,6 +99,16 @@ app.post('/deleteQuestiom/:idCounter',(req,res)=>{
 
 
 
+
+
+
+
+// edit questions
+app.get('/editQuesion/:idCounter',(req,res)=>{
+    const idEdit = req.params.idCounter;
+    const index = QuestionArray.findIndex(item =>String(item.idCounter) ===String(idEdit));
+    res.render('editQuestion',{headerText: "Edit Quesions",QuestionArray})
+})
 
 app.listen(3000, () => {
     console.log('Server on port 3000')

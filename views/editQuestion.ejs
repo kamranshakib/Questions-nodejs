@@ -1,0 +1,30 @@
+<%-include('header') %>
+    <main class="dashboard-container-admin">
+        <h2>Manage Questions</h2>
+
+        <!-- List of Questions -->
+        
+
+
+        <!-- Add New Question Form -->
+        <form action="/EditQuestion" method="post" id="add-question-form" class="add-question-form">
+            <h3>Edit  Question</h3>
+                <% for(var i = 0; i<QuestionArray.length; i++){ %>
+            <input type="text" value="<%=QuestionArray[i].Question %>" name="question" placeholder="Enter question" required>
+            <input type="text" name="option1" value="<%= QuestionArray[i].Option1 %>" placeholder="Option 1" required>
+            <input type="text" name="option2" value="<%= QuestionArray[i].Option2 %>" placeholder="Option 2" required>
+            <input type="text" name="option3" value="<%= QuestionArray[i].Option3 %>" placeholder="Option 3" required>
+            <input type="text" name="option4" value="<%= QuestionArray[i].Option4 %>" placeholder="Option 4" required>
+            <select name="correct-answer" required>
+                <option value="" disabled selected>Select Correct Answer</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+                <option value="option4">Option 4</option>
+            </select>
+            <% }  %>
+            <button type="submit" class="btn-add">Edit Question</button>
+        </form>
+         <br><br>
+        <table class="questions-table">
+           
