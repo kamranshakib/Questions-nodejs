@@ -6,30 +6,21 @@
          <% for(var i = 0; i<QuestionArray.length; i++){ %>
         <div class="question-container">
             <p class="question"> <%= QuestionArray[i].Question %></p>
-            <ul class="options options-pblicSide">
-                <li name="liOne" >A) <%= QuestionArray[i].Option1 %> </li>
-                <li>B) <%= QuestionArray[i].Option2 %></li>
-                <li >C) <%= QuestionArray[i].Option3 %></li>
-                <li>D) <%= QuestionArray[i].Option4 %></li>
-            </ul>
+            <div  class="options options-pblicSide">
+               <input type="radio" name="kami" id="R1"> <label for="R1">  A) <%= QuestionArray[i].Option1 %> </label>
+               <br><br>
+               <input type="radio" name="kami" id="R2"> <label for="R2"> B) <%= QuestionArray[i].Option2 %></label>
+               <br><br>
+               <input type="radio" name="kami" id="R3" > <label for="R3"> C) <%= QuestionArray[i].Option3 %></label>
+               <br><br>
+                <input type="radio" name="kami"  id="optionR4"> <label for="optionR4" >D) <%= QuestionArray[i].Option4 %></label>
+            </div>
             <div class="action-buttons">
                 <button class="btn-edit">OK</button>
             </div>
         </div>
     <% }%>
-<!-- 
-        <div class="question-container">
-            <p class="question">2. What is 5 + 7?</p>
-            <ul class="options">
-                <li>A) 10</li>
-                <li>B) 11</li>
-                <li>C) 12</li>
-                <li>D) 13</li>
-            </ul>
-            <div class="action-buttons">
-                <button class="btn-edit">OK</button>
-            </div>
-        </div> -->
+
 
     </main>
 </body>
