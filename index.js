@@ -122,6 +122,7 @@ app.post("/EditQuestion/:idCounter", (req, res) => {
   );
   if (index !== -1) {
     QuestionArray[index] = {
+      idCounter : idCounter,
       Question: req.body.question,
       Option1: req.body.option1,
       Option2: req.body.option2,
