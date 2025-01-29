@@ -33,7 +33,7 @@ const text = dbf.toString();
 const jsFile = JSON.parse(text);
 
 const QuestionArray = [];
-// post for student
+
 
 // post for admin
 app.post("/getToAdminPanel", (req, res) => {
@@ -131,9 +131,10 @@ app.post("/EditQuestion/:idCounter", (req, res) => {
       correctAnswer: req.body.correctAnswer,
     };
   }
-  // QuestionArray.push({idCounter,correctAnswer, Question, Option1, Option2, Option3, Option4 });
+ 
   res.redirect("/getToAdminPanel");
 });
+// this app doesn't have any database and questios save the json. later i'll create a database for this app
 app.listen(3000, () => {
   console.log("Server on port 3000");
 });
